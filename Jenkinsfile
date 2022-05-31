@@ -7,6 +7,7 @@ pipeline {
         stage('tempesta') {
             steps {
                 echo 'FAKE1'
+                git url: 'https://github.com/tempesta-tech/tempesta-test.git'
             }
         }
     }
