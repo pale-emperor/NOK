@@ -9,7 +9,8 @@ pipeline {
                 sh 'rm -rf /root/tempesta'
                 sh 'git clone https://github.com/tempesta-tech/tempesta.git'
                 sh 'ls -a'
-                dir("tempesta"){
+                sh 'mv tempesta /root/tempesta'
+                dir("/root/tempesta"){
                     sh 'make'
                 }
             }
