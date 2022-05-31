@@ -4,12 +4,10 @@ pipeline {
     }
 
     stages {
-        stage('Set buildname'){
-            buildName '#PR-${ghprbPullId}'
-        }
-        
+
         stage('build tempesta-fw') {
             steps {
+                buildName '#PR-${ghprbPullId}'
                 sh 'rm -rf /root/tempesta'
                 sh 'git clone https://github.com/tempesta-tech/tempesta.git'
                 sh 'mv tempesta /root/tempesta'
