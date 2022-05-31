@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Pull tempesta-test') {
             steps {
+                echo 'FAKE MESSAGE'
                 git url: 'https://github.com/tempesta-tech/tempesta-test.git'
             }
         }
