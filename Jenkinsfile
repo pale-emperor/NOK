@@ -4,9 +4,9 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Pull tempesta-test') {
             steps {
-                echo 'Building..'
+                git url: 'https://github.com/tempesta-tech/tempesta-test.git'
             }
         }
         stage('Test') {
