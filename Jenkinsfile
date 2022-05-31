@@ -4,10 +4,10 @@ pipeline {
     }
 
     stages {
-        stage('tempesta') {
+        stage('Get tempesta tests') {
             steps {
-                echo 'FAKE1'
-                git url: 'https://github.com/tempesta-tech/tempesta-test.git'
+                sh 'rm -rf /home/tempesta/tempesta-test'
+                sh 'git clone https://github.com/tempesta-tech/tempesta-test.git /home/tempesta/tempesta-test'
             }
         }
     }
