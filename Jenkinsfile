@@ -4,6 +4,10 @@ pipeline {
     }
 
     stages {
+        stage('Set buildname'){
+            buildName '#PR-${ghprbPullId}'
+        }
+        
         stage('build tempesta-fw') {
             steps {
                 sh 'rm -rf /root/tempesta'
