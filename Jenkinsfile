@@ -10,15 +10,5 @@ pipeline {
                 git 'https://github.com/tempesta-tech/tempesta-test.git'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
     }
 }
