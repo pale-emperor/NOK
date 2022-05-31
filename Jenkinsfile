@@ -4,7 +4,7 @@ pipeline {
     }
 
     stages {
-        stage('Pull tempesta-test') {
+        stage('tempesta-test') {
             steps {
                 echo 'FAKE MESSAGE'
             }
