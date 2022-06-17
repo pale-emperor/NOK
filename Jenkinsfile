@@ -7,6 +7,7 @@ pipeline {
 
         stage('build tempesta-fw') {
             steps {
+                cleanWs()
                 sh 'rm -rf /root/tempesta'
                 sh 'git clone https://github.com/tempesta-tech/tempesta.git'
                 sh 'mv tempesta /root/tempesta'
