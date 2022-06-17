@@ -1,6 +1,6 @@
 pipeline {
     agent {
-       label "epyc-tempesta-test"
+       label "master"
     }
 
     stages {
