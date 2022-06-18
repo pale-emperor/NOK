@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Set buildName and cleanWS'){
             steps {
-                buildName "PR-${ghprbPullId}"
+                script {
+                    currentBuild.displayName = "PR-${ghprbPullId}"
+                } 
                 cleanWs()
                 sh 'rm -rf /root/tempesta'
             }
