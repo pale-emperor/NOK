@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        TEMPESTA_PATH = "/home/tempesta/tempesta-test"
+        TESTS_PATH = "/home/tempesta/tempesta-test"
     }
 
     agent {
@@ -16,8 +16,9 @@ pipeline {
                     }
                     cleanWs()
                     sh 'rm -rf /root/tempesta'
-                    sh 'ls ${TEMPESTA_PATH}'
-                    sh 'echo ${TEMPESTA_PATH}'
+                    sh 'ls /home/tempesta/tempesta-test'
+                    sh 'ls ${TESTS_PATH}'
+                    sh 'echo ${TESTS_PATH}'
                 }
             }
         }
@@ -34,7 +35,7 @@ pipeline {
         stage('Checkout tempesta-tests') {
             steps {
                 sh 'rm -rf ${TEMPESTA_PATH}'
-                sh 'git clone https://github.com/tempesta-tech/tempesta-test.git ${TEMPESTA_PATH}'
+                sh 'git clone https://github.com/tempesta-tech/tempesta-test.git ${TESTS_PATH}'
             }
         }
 
