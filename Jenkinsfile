@@ -16,6 +16,7 @@ pipeline {
                     }
                     cleanWs()
                     sh 'rm -rf /root/tempesta'
+                    sh 'echo ${TEMPESTA_PATH}'
                 }
             }
         }
