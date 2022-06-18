@@ -12,6 +12,7 @@ pipeline {
                     } 
                     cleanWs()
                     sh 'rm -rf /root/tempesta'
+                    sh 'exit 1'
                 }
             }
         }
