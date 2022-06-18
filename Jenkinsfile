@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        TEMPESTA_PATH = "/home/tempesta/tempesta-test"
+    }
+
     agent {
        label "tempesta-test"
     }
@@ -15,11 +19,10 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Build tempesta-fw') {
             steps {
-                sh 'git clone https://github.com/tempesta-tech/tempesta.git'
-                sh 'mv tempesta /root/tempesta'
+                sh 'cp -r . /root/tempesta'
                 dir("/root/tempesta"){
                     sh 'make'
                 }
@@ -28,16 +31,15 @@ pipeline {
 
         stage('Checkout tempesta-tests') {
             steps {
-                sh 'rm -rf /home/tempesta/tempesta-test'
-                sh 'git clone https://github.com/tempesta-tech/tempesta-test.git /home/tempesta/tempesta-test'
+                sh 'rm -rf ${TEMPESTA_PATH}'
+                sh 'git clone https://github.com/tempesta-tech/tempesta-test.git ${TEMPESTA_PATH}'
             }
         }
 
-        
         stage('Run tests') {
             steps {
-                dir("/home/tempesta/tempesta-test"){
-                    sh './run_tests.py ws'
+                dir('${TEMPESTA_PATH}'){
+                    sh './run_tests.py'
                 }
             }
         }
