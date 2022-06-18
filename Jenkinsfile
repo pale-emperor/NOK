@@ -14,6 +14,10 @@ pipeline {
                     script {
                         currentBuild.displayName = "PR-${ghprbPullId}"
                     }
+                    dir('${TESTS_PATH}'){
+                        sh 'pwd'
+                        sh 'ls'
+                    }
                     cleanWs()
                     sh 'rm -rf /root/tempesta'
                     sh 'ls /home/tempesta/tempesta-test'
