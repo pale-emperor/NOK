@@ -9,10 +9,9 @@ pipeline {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
                         currentBuild.displayName = "PR-${ghprbPullId}"
-                    } 
+                    }
                     cleanWs()
                     sh 'rm -rf /root/tempesta'
-                    sh 'exit 1'
                 }
             }
         }
